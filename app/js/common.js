@@ -9,50 +9,25 @@ $(function() {
 	e.preventDefault();
 	});
 
-	// Меню при скроле
-	$(window).scroll(function(){
-		var topline = $(window).scrollTop();
-		if ( topline > 650 ) {
-			$(".posf").addClass('show');
-		} else {
-			$(".posf").removeClass('show');
-		};
-	});
-
 	// Клик по гамбургеру на моб версии
-	$('.mob-mnu__humb').click(function() {
-		$('.mob-mnu-list').toggleClass('show');
+	$('.mnu-mob__btn').click(function() {
+		$('.mnu-mob').toggleClass('show');
 	});
-	$('.mob-mnu__li').click(function() {
-		$('.mob-mnu-list').removeClass('show');
-	});
-
-	// Формирование полей и заголовков формы в мод окне
-	$('.modal').click(function(){
-		var ttl = $(this).data('title');
-		var subTtl = $(this).data('subtitle');
-		var text = $(this).data('text');
-		var btn = $(this).data('btn');
-		var goal = $(this).data('goal');
-		var subject = $(this).data('subject');
-		$('.ttl').html(ttl);
-		$('.subTtl').html(subTtl);
-		$('.text').html(text);
-		$('.btn').html(btn);
-		$('.goal').val(goal);
-		$('.subject').val(subject);
+	$('.mnu-mob .nav-mnu__li').click(function() {
+		$('.mnu-mob').removeClass('show');
 	});
 
 	// Отправка формы
 	$('form').submit(function() {
-		var data = $(this).serialize();
+		var form = $(this);
+		var data = new FormData(form[0]);
 		var goalId = $(this).find('input[ name="goal"]').val();
-		data += '&ajax-request=true';
 		$.ajax({
 			type: 'POST',
 			url: 'mail.php',
-			dataType: 'json',
 			data: data,
+			contentType: false,
+			processData: false,
 			success: (function() {
 				$.fancybox.close();
 				$.fancybox.open('<div class="thn"><h3>Заявка отправлена!</h3><p>С Вами свяжутся в ближайшее время.</p></div>');
@@ -64,17 +39,77 @@ $(function() {
 	});
 
 	// Инит фансибокса
-	$('.fancybox, .modal').fancybox({
+	$('.fancybox').fancybox({
 		margin: 0,
 		padding: 0
 	});
 
-	//Якорь наверх
-	$("[href='#top']").click(function(e){
+	$('.gallery-slider').slick({
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		fade: true,
+		dots: true,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					dots: false
+				}
+			}
+		]
+	});
+
+	$('.goods-slider').slick({
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		fade: true,
+		dots: true,
+		adaptiveHeight: true
+	});
+
+	$('.about-for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.about-nav'
+	});
+	$('.about-nav').slick({
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		asNavFor: '.about-for',
+		focusOnSelect: true
+	});
+
+	document.getElementById('mov').play();
+
+	$('.goods-slider .slick-dots li:last-child').click(function () {
+		var anchor = $('.goods-slider');
 		$('html, body').stop().animate({
-			scrollTop: $('#top').offset().top
+			scrollTop: $(anchor).offset().top-106 // отступ от меню
 		}, 300);
-		e.preventDefault();
+	});
+
+	$(".scroll").each(function () {
+		var block = $(this);
+		$(window).scroll(function() {
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				var top = block.offset().top-0;
+			} else {
+				var top = block.offset().top+0;
+			}
+			var bottom = block.height()+top;
+			top = top - $(window).height();
+			var scroll_top = $(this).scrollTop();
+			if ((scroll_top > top) && (scroll_top < bottom)) {
+				if (!block.hasClass("animated")) {
+					block.addClass("animated");
+					block.trigger('animatedIn');
+				}
+			}
+		});
 	});
 
 });

@@ -1,41 +1,234 @@
 @import "vars"
 
-
-/*==========  Desktop First  ==========*/
-
-
 //Extra large: ≥1440px
 +media-breakpoint-down(xl)
 
 //Large: ≥1200px  max-width: 1439px
 +media-breakpoint-down(lg)
+	.nav
+		&-mnu
+			&__li
+				margin: 0
+				a
+					padding: 24px 6px
+	.form
+		&-block
+			&__name
+				font-size: 14px
+			.field
+				width: 100%
+	.industry
+		&-item
+			min-width: 265px
+			&__btn
+				width: 220px
+	.gallery
+		.slick-arrow
+			bottom: 220px
+			&.slick-prev
+				left: 5%
+			&.slick-next
+				right: 5%
 
 //Medium: ≥992px max-width: 1199px
 +media-breakpoint-down(md)
+	.nav
+		&-mnu
+			&__li
+				a
+					padding: 27px 4px
+					font-size: 13px
+		&-phone
+			&__numb
+				padding-left: 13px
+	.head
+		&:before
+			left: -75px
+		&__arrow
+			display: none
+		&__ttl
+			position: relative
+			z-index: 2
+		&__subttl
+			position: relative
+			z-index: 2
+	.goods
+		&-title
+			font-size: 22px
+		&-item
+			&__name
+				font-size: 18px
+			&__btn
+				font-size: 14px
+		.slick-arrow
+			&.slick-prev
+				left: 5%
+			&.slick-next
+				right: 5%
+	.form
+		&-block
+			&__name
+				min-height: 42px
+	.industry
+		&-item
+			min-width: 220px
+			height: 350px
+			&__txt
+				font-size: 18px
+			&__btn
+				width: 190px
+	.about
+		&__sircle
+			display: none
+	.services
+		&-item
+			&__txt
+				font-size: 18px
+	.trust
+		&:before
+			right: 15%
+	.gallery
+		&__img
+			max-width: 220px
+		.slick-arrow
+			bottom: 170px
 
 //Small: ≥768px max-width: 991px
 +media-breakpoint-down(sm)
+	.nav
+		padding: 5px 0
+		&-phone
+			float: right
+	.mnu-mob
+		display: block
+		overflow: hidden
+		transition: all ease .3s
+		max-height: 0
+		&.show
+			max-height: 250px
+		&__btn
+			cursor: pointer
+			/* float: right */
+	.nav
+		&-phone
+			&__numb
+				padding-left: 10px
+		&-mnu
+			display: block
+			padding: 10px 0
+			&__li
+				display: block
+				a
+					padding: 10px 5px
+	.head
+		min-height: 750px
+		&:before
+			left: -80px
+		&__float
+			float: right
+	.form
+		&-block
+			&__btn
+				position: relative
+				z-index: 1
+	.about
+		&-for
+			&__slide
+				img
+					margin: 0 auto
+		&-block
+			&__btn
+				margin: 30px auto 0
+	.trust
+		&-txt
+			display: block
+			margin-top: 20px
+			&__p
+				display: block
+				text-align: center
+	.gallery
+		.slick-arrow
+			bottom: 130px
+		&__img
+			margin: 0 auto
+	.map
+		min-height: 300px
+	.dev
+		margin: 20px auto 0
+		background-position: center bottom
+
 
 //Extra small: ≥576px max-width: 767px
 +media-breakpoint-down(xs)
+	.head
+		max-height: none
+		height: auto
+		&:before
+			display: none
+		&__sircle
+			display: none
+		&__arrow
+			display: none
+		&__float
+			float: none
+			max-width: none
+	.advantage
+		&-item
+			&.last
+				margin-bottom: 60px
+				&.last-xs
+					margin-bottom: 0
+	.goods
+		&-title
+			max-width: none
+			margin-bottom: 20px
+		&-item
+			float: none
+			margin: 0 auto
+			&__btn
+				float: none
+				margin: 20px auto
+	.form
+		&-block
+			.rline
+				margin: 0 auto
+			&__name
+				width: 220px
+				margin: 0 auto
+		.file
+			width: 220px
+			margin: 0 auto 20px
+	.industry
+		&-item
+			&_5
+				margin-bottom: 20px
+			&_6
+				margin-bottom: 20px
+	.trust
+		&__img
+			margin: 0 auto 20px
+			&_xsmb
+				margin-bottom: 20px
+	.modal-good-block
+		margin-bottom: 30px
 
 //Extra small: >0 max-width: 575px
 +media-breakpoint-down(xxs)
-
-
-/*==========  Mobile First  ==========*/
-
-//Extra small: <576px
-+media-breakpoint-up(xs)
-
-//Small: ≤576px
-+media-breakpoint-up(sm)
-
-//Medium: ≤768px
-+media-breakpoint-up(md)
-
-//Large: ≤992px
-+media-breakpoint-up(lg)
-
-//Extra large: ≤1200px
-+media-breakpoint-up(xl)
+	.nav-phone
+		background-color: inherit
+		padding: 20px 0
+		box-shadow: none
+	.about
+		&-block
+			padding: 50px 0
+	.modal
+		&-form
+			.field
+				min-width: 260px
+	.modal-good
+		padding: 40px 10px
+		&-block
+			&__img
+				bottom: -90px
+				left: -60px
+				width: 460px

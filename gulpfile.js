@@ -36,6 +36,7 @@ gulp.task('js', function() {
 		'app/libs/fancybox/dist/jquery.fancybox.min.js',
 		'app/libs/required_fields/jquery.maskedinput.min.js',
 		'app/libs/required_fields/required_fields.js',
+		'app/libs/slick-carousel/slick/slick.min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))

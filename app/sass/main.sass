@@ -45,6 +45,20 @@ button
 	&:focus
 		outline: none
 
+.content
+	overflow-x: hidden
+
+.video_bg
+	position: absolute
+	min-width: 100%
+	min-height: 100%
+	width: auto
+	height: auto
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+
 .nav
 	background-color: #F4F4F4
 	position: fixed
@@ -64,7 +78,7 @@ button
 			margin: 0 5px
 			a
 				display: block
-				padding: 24px 15px
+				padding: 24px 14px
 				color: #000
 				&:hover
 					transition: all ease .3s
@@ -91,45 +105,65 @@ button
 			vertical-align: middle
 			line-height: 1
 			padding-left: 20px
+			color: #000
 
 .head
-	padding-top: 120px
+	overflow: hidden
+	padding-top: 60px
 	height: 100vh
 	max-height: 820px
 	min-height: 700px
 	position: relative
 	&__ttl
+		position: relative
+		z-index: 1
 		margin-top: 120px
 		font-family: $title-s
 		font-size: 25px
 		text-transform: uppercase
-		color: #0909D6
+		color: #FFD554
 	&__subttl
 		position: relative
+		z-index: 1
+		max-width: 900px
 		font-family: $title-s
 		font-size: 25px
 		text-transform: uppercase
-		color: #000
+		color: #fff
 		padding-bottom: 20px
 		margin-bottom: 20px
+	&__float
+		/* float: right */
+		max-width: 500px
+		position: relative
+		z-index: 2
+		padding-top: 20px
 		&:after
 			content: ''
 			width: 150px
 			height: 3px
-			background-color: #000
+			background-color: #F2C94C
 			position: absolute
 			left: 0
-			bottom: 0
+			top: 0
+			z-index: 1
 	&__txt
+		position: relative
+		z-index: 1
 		font-size: 24px
-		color: #2B2B2B
+		color: #fff
 		line-height: 1.25
 		margin-bottom: 20px
 	&__action
+		position: relative
+		z-index: 1
 		font-family: $text-m
+		color: #FBD668
 		font-size: 24px
 		margin-bottom: 20px
 	&__btn
+		position: relative
+		z-index: 1
 		display: block
 		max-width: 290px
 		padding: 16px 0
@@ -142,26 +176,28 @@ button
 		background: #1515E2
 		box-shadow: 0px 4px 10px #8FBAF4, inset 0px 4px 10px rgba(0, 0, 0, 0.34)
 		border-radius: 50px
+		transition: all ease .3s
 		&:hover
 			color: darken(#fff, 30%)
 	&:before
 		content: ''
-		width: 420px
-		height: 462px
+		width: 403px
+		height: 463px
 		background-image: url(../img/head-pattern.png)
 		position: absolute
 		bottom: 0
-		left: 0
+		left: -50px
+		z-index: 2
 	&:after
 		content: ''
-		width: 40%
+		width: 100%
 		height: 100%
-		background-image: url(../img/head-img.jpg)
-		background-size: cover
+		background-color: rgba(#000000, .4)
 		position: absolute
 		top: 0
-		right: 0
+		left: 0
 	&__arrow
+		z-index: 1
 		width: 50px
 		height: 102px
 		position: absolute
@@ -172,10 +208,20 @@ button
 		margin-right: auto
 		background-image: url(../img/arrow-down.svg)
 		background-size: cover
+	&__sircle
+		width: 1200px
+		height: 1200px
+		background-image: url(../img/head-sircle.svg)
+		background-size: 1200px 1200px
+		position: absolute
+		top: -350px
+		left: -350px
+		z-index: 1
 
 .advantage
 	background-color: #21252D
 	padding: 80px 0
+	position: relative
 	&__ttl
 		position: relative
 		display: table
@@ -193,6 +239,8 @@ button
 			bottom: 0
 			right: -100px
 	&-item
+		position: relative
+		z-index: 1
 		display: table
 		margin: 0 auto 60px
 		max-width: 170px
@@ -216,9 +264,26 @@ button
 				position: absolute
 				top: 0
 				left: 0
+	&__sircle
+		width: 1500px
+		height: 1500px
+		background-image: url(../img/advantage-sircle.svg)
+		background-size: 1500px 1500px
+		position: absolute
+		top: 0
+		right: -500px
 
 .goods
+	position: relative
 	padding: 80px 0
+	&__sircle
+		width: 850px
+		height: 850px
+		background-image: url(../img/goods-sircle.svg)
+		background-size: 850px 850px
+		position: absolute
+		top: 10px
+		left: 0px
 	&__ttl
 		position: relative
 		display: table
@@ -234,6 +299,222 @@ button
 			position: absolute
 			top: 42px
 			right: -100px
+	&-title
+		position: relative
+		padding: 20px 0 30px 0
+		font-family: $text-m
+		font-size: 25px
+		line-height: 1.25
+		padding-left: 35px
+		max-width: 220px
+		&:before
+			content: ''
+			width: 60px
+			height: 100%
+			background-color: rgba(#C4D2E3, .5)
+			position: absolute
+			top: 0
+			left: 0
+			z-index: -1
+		&:after
+			content: ''
+			width: 100px
+			height: 1px
+			background-color: #4D4D4D
+			position: absolute
+			bottom: 20px
+			left: 35px
+	&-item
+		position: relative
+		max-width: 280px
+		background-color: #959EAD
+		float: right
+		&:after
+			opacity: 0
+			content: ''
+			width: 170px
+			height: 104px
+			background-image: url(../img/goods-pattern.svg)
+			background-size: 170px 104px
+			position: absolute
+			top: 100px
+			left: 75px
+			transition: all ease .3s
+		&:hover
+			&:after
+				opacity: 1
+		&__name
+			position: relative
+			z-index: 1
+			font-family: $title-b
+			font-size: 18px
+			min-height: 96px
+			line-height: 1.25
+			color: #fff
+			padding: 
+				top: 30px
+				left: 30px
+				right: 30px
+		&__img
+			position: relative
+			z-index: 1
+			left: -50px
+		&__btn
+			display: table
+			float: right
+			width: 100%
+			max-width: 280px
+			margin: 20px 0
+			padding: 16px 0
+			text-align: center
+			line-height: 1
+			font-family: $title-m
+			font-size: 18px
+			color: #fff
+			background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
+			border-radius: 50px
+			transition: all ease .3s
+			&:hover
+				background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+				box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+				color: #fff
+	.slick-slide
+		outline: none
+	.slick-dots
+		display: table
+		margin: 30px auto 0
+		padding-left: 0
+		font-size: 0
+		list-style-type: none
+		li
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			background-color: #C4D2E3
+			float: left
+			margin: 0 5px
+			cursor: pointer
+			&.slick-active
+				background-color: #2B2B2B
+	.slick-arrow
+		position: absolute
+		z-index: 2
+		bottom: -10px
+		background-size: 34px 34px
+		width: 34px
+		height: 34px
+		font-size: 0
+		line-height: 0
+		cursor: pointer
+		transition: all ease .3s
+		&.slick-prev
+			background-image: url(../img/gall_arr_left.svg)
+			left: 44%
+			&:hover
+				background-image: url(../img/gall_arr_left_hov.svg)
+		&.slick-next
+			background-image: url(../img/gall_arr_right.svg)
+			right: 44%
+			&:hover
+				background-image: url(../img/gall_arr_right_hov.svg)
+
+.form
+	padding: 80px 0
+	margin-bottom: 80px
+	background-color: #21252D
+	position: relative
+	&:after
+		content: ''
+		width: 774px
+		height: 442px
+		background-image: url(../img/form-img.png)
+		position: absolute
+		bottom: -40px
+		right: 0
+	&__ttl
+		position: relative
+		display: table
+		margin-bottom: 60px
+		font-family: $title-s
+		font-size: 20px
+		text-transform: uppercase
+		color: #F2C94C
+		&:before
+			content: ''
+			width: 200px
+			height: 2px
+			background-color: #8F8F8F
+			position: absolute
+			top: 35px
+			right: -100px
+	&-block
+		.rline
+			display: table
+			position: relative
+		.field
+			display: block
+			background: #FEFEFE
+			box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5)
+			border-radius: 50px
+			border: none
+			padding: 5px
+			margin-bottom: 20px
+		&__name
+			font-family: $title-m
+			color: #ECECEC
+			margin-bottom: 10px
+		&__btn
+			display: block
+			width: 100%
+			max-width: 290px
+			padding: 16px 0
+			margin: 0 auto 120px
+			text-align: center
+			line-height: 1
+			font-family: $title-s
+			font-size: 18px
+			color: #fff
+			background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
+			border-radius: 50px
+			transition: all ease .3s
+			&:hover
+				background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+				box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+				color: #fff
+	.file
+		position: relative
+		cursor: pointer
+		display: block
+		width: 100%
+		background: #FEFEFE
+		box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5)
+		border-radius: 50px
+		border: none
+		padding: 5px 16px
+		margin-bottom: 20px
+		z-index: 2
+		&:after
+			content: ''
+			width: 22px
+			height: 19px
+			background-image: url(../img/download.svg)
+			background-size: 22px 19px
+			position: absolute
+			top: 7px
+			right: 15px
+		input
+			display: none
+		&__txt
+			font-family: $title-m
+			font-size: 14px
+			line-height: 1.75
+	.rfield_error
+		visibility: hidden
+		font-size: 12px
+		position: absolute
+		bottom: 20px
+		right: 20px
+		color: red
 
 .industry
 	padding: 80px 0
@@ -263,7 +544,7 @@ button
 			top: 42px
 			right: -100px
 	&-item
-		max-width: 340px
+		min-width: 320px
 		height: 420px
 		margin: 0 auto
 		position: relative
@@ -312,8 +593,7 @@ button
 		&__btn
 			position: absolute
 			width: 260px
-			background: linear-gradient(88.62deg, #1515E2 2.2%, #1356D9 99.69%), #4C82D4
-			box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+			background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
 			border-radius: 50px
 			font-family: $text-m
 			color: #fff
@@ -326,13 +606,147 @@ button
 			right: 0
 			margin-left: auto
 			margin-right: auto
+			transition: all ease .3s
 			&:hover
-				color: darken(#fff, 30%)
+				background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+				box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+				color: #fff
+
+.about
+	position: relative
+	padding-top: 80px
+	&__sircle
+		width: 850px
+		height: 850px
+		background-image: url(../img/goods-sircle.svg)
+		background-size: 850px 850px
+		position: absolute
+		bottom: -400px
+		left: -400px
+		z-index: 1
+	&-block
+		position: relative
+		padding: 50px
+		background-color: #F1F2F4
+		&__ttl
+			position: relative
+			display: table
+			margin-bottom: 30px
+			font-family: $title-s
+			font-size: 28px
+			text-transform: uppercase
+			&:before
+				content: ''
+				width: 90px
+				height: 1px
+				background-color: $accent
+				position: absolute
+				top: 42px
+				right: -30px
+		&__txt
+			position: relative
+			z-index: 1
+			font-size: 18px
+			margin-bottom: 20px
+		&__subttl
+			position: relative
+			z-index: 1
+			font-family: $title-b
+			font-size: 20px
+			margin-bottom: 20px
+		&__float
+			position: relative
+			z-index: 1
+			width: 50%
+			float: left
+		&__name
+			font-family: $title-s
+			font-size: 20px
+			color: #0A50B9
+		&__ul
+			list-style-type: none
+			padding-left: 15px
+			margin-bottom: 0
+		&__li
+			position: relative
+			&:before
+				content: ''
+				width: 5px
+				height: 5px
+				border-radius: 50%
+				background-color: #0D62E1
+				position: absolute
+				top: 10px
+				left: -15px
+		&__btn
+			position: relative
+			z-index: 1
+			display: block
+			max-width: 290px
+			margin-top: 30px
+			padding: 16px 0
+			text-align: center
+			line-height: 1
+			font-family: $title-s
+			color: #fff
+			background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
+			border-radius: 50px
+			transition: all ease .3s
+			&:hover
+				background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+				box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+				color: #fff
+	&-item
+		position: relative
+		z-index: 1
+		margin-bottom: 20px
+		&.last
+			margin-bottom: 0
+		&__numb
+			position: relative
+			font-family: $title-b
+			font-size: 25px
+			color: #2F80ED
+			text-decoration: underline
+			margin-bottom: 10px
+			&:before
+				content: ''
+				width: 80px
+				height: 36px
+				background-image: url(../img/about-item_numb.svg)
+				background-size: 80px 36px
+				position: absolute
+				top: 0
+				left: 5px
+				z-index: -1
+		&__txt
+			font-size: 17px
+			color: #404040
+			position: relative
+			padding-bottom: 10px
+			&:after
+				content: ''
+				width: 100%
+				height: 1px
+				background-color: #A9A9A9
+				position: absolute
+				bottom: 0
+				left: 0
+	&-nav
+		position: relative
+		top: -28px
+		z-index: 2
+		img
+			cursor: pointer
+			margin: 0 auto
+	.slick-slide
+		outline: none
 
 .services
 	padding: 80px 0
 	&__ttl
 		position: relative
+		z-index: 1
 		display: table
 		margin: 0 auto 60px
 		font-family: $title-s
@@ -347,6 +761,8 @@ button
 			top: 42px
 			right: -100px
 	&-item
+		position: relative
+		z-index: 1
 		height: 310px
 		margin: 0 auto
 		position: relative
@@ -423,6 +839,14 @@ button
 				display: block
 				color: #F2C94C
 				font-size: 55px
+	&__sircle
+		width: 1200px
+		height: 1200px
+		background-image: url(../img/trust-sircle.svg)
+		background-size: 1200px 1200px
+		position: absolute
+		top: -350px
+		right: 0
 
 .gallery
 	padding: 80px 0
@@ -441,11 +865,54 @@ button
 			position: absolute
 			top: 42px
 			right: -100px
+	&__img
+		&_mt
+			margin-top: 20px
+	.slick-slide
+		outline: none
+	.slick-arrow
+		position: absolute
+		z-index: 2
+		bottom: 180px
+		background-size: 58px 58px
+		width: 58px
+		height: 58px
+		font-size: 0
+		line-height: 0
+		cursor: pointer
+		transition: all ease .3s
+		&.slick-prev
+			background-image: url(../img/gall_arr_left.svg)
+			left: 15%
+			&:hover
+				background-image: url(../img/gall_arr_left_hov.svg)
+		&.slick-next
+			background-image: url(../img/gall_arr_right.svg)
+			right: 15%
+			&:hover
+				background-image: url(../img/gall_arr_right_hov.svg)
+	.slick-dots
+		display: table
+		margin: 30px auto 0
+		padding-left: 0
+		font-size: 0
+		list-style-type: none
+		li
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			background-color: #C4D2E3
+			float: left
+			margin: 0 5px
+			cursor: pointer
+			&.slick-active
+				background-color: #2B2B2B
 
 .foot
 	background-color: #21252D
 	padding: 80px 0
 	position: relative
+	overflow: hidden
 	&__ttl
 		position: relative
 		display: table
@@ -473,35 +940,68 @@ button
 		font-size: 17px
 		line-height: 1.25
 		color: #fff
+	&__numb
+		display: block
+		font-family: $title-m
+		font-size: 17px
+		line-height: 1.25
+		color: #fff
+		&:hover
+			color: darken(#fff, 30%)
 	&__eml
 		font-family: $title-m
 		font-size: 17px
 		line-height: 1.25
 		color: #fff
+		margin-top: 30px
+	&__email
+		display: block
+		font-family: $title-m
+		font-size: 17px
+		line-height: 1.25
+		color: #fff
 		margin-bottom: 30px
+		&:hover
+			color: darken(#fff, 30%)
+	&__soc
+		display: block
+		float: left
+		&.first
+			margin-right: 20px
 	&__btn
 		display: block
 		max-width: 290px
+		margin-top: 30px
 		margin-bottom: 60px
 		padding: 16px 0
 		text-align: center
 		line-height: 1
 		font-family: $title-s
 		color: #fff
-		background: linear-gradient(88.34deg, #1515E2 2.2%, #1356D9 99.69%), #4C82D4
-		box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+		background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
 		border-radius: 50px
+		transition: all ease .3s
 		&:hover
-			color: darken(#fff, 30%)
+			background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+			box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+			color: #fff
+	&__sircle
+		width: 850px
+		height: 850px
+		background-image: url(../img/foot-sircle.svg)
+		background-size: 850px 850px
+		position: absolute
+		top: -20px
+		left: -20px
 
 .dev
 	display: table
 	color: #fff
 	font-size: 14px
-	padding-bottom: 65px
-	background-image: url(../img/dev-logo.jpg)
+	padding-bottom: 95px
+	background-image: url(../img/wamp.svg)
 	background-position: left bottom
-	background-size: 62px 62px
+	background-size: 95px 95px
 	background-repeat: no-repeat
 	&:hover
 		color: darken(#fff, 30%)
@@ -510,4 +1010,181 @@ button
 	width: 100%
 	height: 100%
 
+.modal
+	max-width: 600px
+	padding: 30px
+	&__ttl
+		margin-bottom: 30px
+		font-family: $text-m
+		font-size: 20px
+		text-transform: uppercase
+		text-align: center
+		&.txal
+			text-align: left
+	&-form
+		.rline
+			display: table
+			position: relative
+			margin: 0 auto
+		.field
+			min-width: 290px
+			display: block
+			background: #ECECEC
+			box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5)
+			border-radius: 50px
+			border: none
+			padding: 5px
+			margin-bottom: 20px
+		&__name
+			font-family: $title-m
+			margin-bottom: 10px
+		&__btn
+			display: block
+			width: 100%
+			max-width: 290px
+			padding: 16px 0
+			margin: 0 auto
+			text-align: center
+			line-height: 1
+			font-family: $title-s
+			font-size: 18px
+			color: #fff
+			background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
+			border-radius: 50px
+			transition: all ease .3s
+			&:hover
+				background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+				box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+				color: #fff
+		.rfield_error
+			visibility: hidden
+			font-size: 12px
+			position: absolute
+			bottom: 20px
+			right: 20px
+			color: red
+
+.modal-good
+	max-width: 900px
+	padding: 80px
+	overflow: hidden
+	&__ttl
+		position: relative
+		display: table
+		margin-bottom: 30px
+		font-family: $title-s
+		font-size: 20px
+		text-transform: uppercase
+		&:before
+			content: ''
+			width: 100px
+			height: 2px
+			background-color: $accent
+			position: absolute
+			top: 42px
+			right: -30px
+	&-block
+		height: 300px
+		position: relative
+		padding-top: 30px
+		&:before
+			content: ''
+			width: 324px
+			height: 100%
+			background-color: #959ead
+			position: absolute
+			top: 0
+			left: 50%
+			margin-left: -162px
+		&:after
+			content: ''
+			width: 250px
+			height: 153px
+			background-image: url(../img/good-pattern.svg)
+			background-size: 250px 153px
+			position: absolute
+			top: 50px
+			left: 20px
+		&__ttl
+			position: relative
+			z-index: 1
+			font-family: $title-s
+			font-size: 20px
+			text-align: center
+		&__img
+			position: absolute
+			bottom: -230px
+			left: -171px
+			width: 692px
+			z-index: 2
+	.rline
+		margin: 0
+	.modal
+		&__ttl
+			text-transform: none
+			line-height: 1.25
+		&-form
+			position: relative
+			z-index: 2
+			&__btn
+				margin: 0
+.thn
+	padding: 30px
+	h3
+		font-family: $title-m
+		font-size: 20px
+		text-align: center
+		margin-bottom: 10px
+	p
+		text-align: center
+
+// Анимация
+.advantage-item.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.goods__ttl.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.form__ttl.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.industry__ttl.animated
+	animation-name: fadeIn
+	animation-duration: 1.5s
+
+.industry-item.animated
+	animation-name: fadeIn
+	animation-duration: 1.5s
+
+.about-block__ttl.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.about-block__txt.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.services-item.animated
+	animation-name: fadeIn
+	animation-duration: 1.5s
+
+.about-item.animated
+	animation-name: fadeIn
+	animation-duration: 1.5s
+
+.trust__ttl.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+
+.gallery__ttl.animated
+	animation-name: fadeIn
+	animation-duration: 1.5s
+
+.foot__ttl.animated
+	animation-name: fadeInLeft
+	animation-duration: 1.5s
+	
 @import "media" // Always at the end
