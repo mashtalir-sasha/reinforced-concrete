@@ -22,6 +22,8 @@ $(function() {
 		var form = $(this);
 		var data = new FormData(form[0]);
 		var goalId = $(this).find('input[ name="goal"]').val();
+		var good = $(this).data('good');
+		var link = $(this).data('link');
 		$.ajax({
 			type: 'POST',
 			url: 'mail.php',
@@ -30,7 +32,12 @@ $(function() {
 			processData: false,
 			success: (function() {
 				$.fancybox.close();
-				$.fancybox.open('<div class="thn"><h3>Заявка отправлена!</h3><p>С Вами свяжутся в ближайшее время.</p></div>');
+				if (good == true) {
+					window.open(link, "_blank");
+					$.fancybox.open('<div class="thn"><h3>Заявка отправлена!</h3><p>С Вами свяжутся в ближайшее время.</p></div>');
+				} else {
+					$.fancybox.open('<div class="thn"><h3>Заявка отправлена!</h3><p>С Вами свяжутся в ближайшее время.</p></div>');
+				}
 				//gtag('event','submit',{'event_category':'submit','event_action':goalId});
 				//fbq('track', 'Lead');
 			})()
@@ -113,3 +120,11 @@ $(function() {
 	});
 
 });
+
+$(window).on('load', function () {
+    $('[data-src]').each(changeDataSrcToSrc);
+});
+
+function changeDataSrcToSrc(i, e) {
+    e.src = $(e).data('src');
+}

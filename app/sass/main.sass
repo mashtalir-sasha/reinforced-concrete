@@ -173,12 +173,13 @@ button
 		font-family: $title-s
 		font-size: 18px
 		color: #fff
-		background: #1515E2
-		box-shadow: 0px 4px 10px #8FBAF4, inset 0px 4px 10px rgba(0, 0, 0, 0.34)
+		background: linear-gradient(87.91deg, #4286E0 2.2%, #1268DA 99.69%), #4C82D4
 		border-radius: 50px
 		transition: all ease .3s
 		&:hover
-			color: darken(#fff, 30%)
+			background: linear-gradient(87.91deg, #2828AF 2.2%, #133D8D 99.69%), #4C82D4
+			box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25)
+			color: #fff
 	&:before
 		content: ''
 		width: 403px
@@ -1137,6 +1138,13 @@ button
 		margin-bottom: 10px
 	p
 		text-align: center
+	a
+		display: block
+		text-align: center
+		font-size: 18px
+		text-transform: uppercase
+		margin-top: 20px
+		text-decoration: underline
 
 // Анимация
 .advantage-item.animated
