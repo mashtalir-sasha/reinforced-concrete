@@ -48,7 +48,8 @@ $(function() {
 	// Инит фансибокса
 	$('.fancybox').fancybox({
 		margin: 0,
-		padding: 0
+		padding: 0,
+		touch: false
 	});
 
 	$('.gallery-slider').slick({
@@ -120,11 +121,3 @@ $(function() {
 	});
 
 });
-
-$(window).on('load', function () {
-    $('[data-src]').each(changeDataSrcToSrc);
-});
-
-function changeDataSrcToSrc(i, e) {
-    e.src = $(e).data('src');
-}
